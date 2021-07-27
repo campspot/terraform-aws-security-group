@@ -55,7 +55,7 @@ variable "tags" {
   default     = {
     name        = "default-campspot-security-group",
     customer    = "campspot-default",
-    environment = "${terraform.workspace}",
+    environment = "default",
     costcenter  = "default",
   }
 }
