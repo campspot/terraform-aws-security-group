@@ -28,7 +28,7 @@ variable "vpc_id" {
 variable "name" {
   description = "Name of security group - not required if create_group is false"
   type        = string
-  default     = null
+  default     = "default-campspot-security-group"
 }
 
 variable "use_name_prefix" {
@@ -52,7 +52,12 @@ variable "revoke_rules_on_delete" {
 variable "tags" {
   description = "A mapping of tags to assign to security group"
   type        = map(string)
-  default     = {}
+  default     = {
+    name        = "default-campspot-security-group",
+    customer    = "campspot-default",
+    environment = "${terraform.workspace}",
+    costcenter  = "default",
+  }
 }
 
 ##########
