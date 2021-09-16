@@ -16,12 +16,9 @@ resource "aws_security_group" "this" {
   vpc_id                 = var.vpc_id
   revoke_rules_on_delete = var.revoke_rules_on_delete
 
-  tags = merge(
-    {
-      "Name" = format("%s", var.name)
-    },
-    var.tags,
-  )
+  tags = {
+    "Name" = format("%s", var.name)
+  }
 }
 
 #################################
@@ -35,12 +32,9 @@ resource "aws_security_group" "this_name_prefix" {
   vpc_id                 = var.vpc_id
   revoke_rules_on_delete = var.revoke_rules_on_delete
 
-  tags = merge(
-    {
-      "Name" = format("%s", var.name)
-    },
-    var.tags,
-  )
+  tags = {
+    "Name" = format("%s", var.name)
+  }
 
   lifecycle {
     create_before_destroy = true
